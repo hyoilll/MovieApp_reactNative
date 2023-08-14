@@ -43,31 +43,29 @@ export default function App() {
         console.warn(e);
       } finally {
         setIsReady(true);
+        await SplashScreen.hideAsync();
       }
     };
 
     prepare();
   }, []);
 
-  const onLayoutRootView = useCallback(async () => {
-    if (isReady) {
-      // ネイティブのスプラッシュスクリーンをすぐに隠します。スプラッシュ画面を非表示にすると、アプリにコンテンツを表示する準備ができていることを確認してください。
-      await SplashScreen.hideAsync();
-    }
-  }, [isReady]);
+  // const onLayoutRootView = useCallback(async () => {
+  //   if (isReady) {
+  //     // ネイティブのスプラッシュスクリーンをすぐに隠します。スプラッシュ画面を非表示にすると、アプリにコンテンツを表示する準備ができていることを確認してください。
+  //     await SplashScreen.hideAsync();
+  //   }
+  // }, [isReady]);
 
   if (!isReady) {
     return null;
   }
 
   return (
-    <View
-      style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-      onLayout={onLayoutRootView}
-    >
-      <Text>SplashScreen Demo! 👋</Text>
-      {/* <Entypo name="rocket" size={30} /> */}
-    </View>
+    // <View style={styles.container} onLayout={onLayoutRootView}>
+    //   <Text>SplashScreen Demo! 👋</Text>
+    // </View>
+    <Tabs />
   );
 }
 
@@ -77,5 +75,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "red",
+  },
+  content: {
+    flex: 1,
+    backgroundColor: "blue",
   },
 });
