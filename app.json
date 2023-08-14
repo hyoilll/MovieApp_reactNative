@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "MovieApp_reactNative",
+    "slug": "MovieApp_reactNative",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "MovieApp_reactNative"
+}
