@@ -2,10 +2,8 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { useColorScheme } from "react-native";
-import Movies from "../screens/Movies";
-import Tv from "../screens/Tv";
-import Search from "../screens/Search";
-import { BLACK_COLOR, WHITE_COLOR } from "../data/data";
+import { Ionicons } from "@expo/vector-icons";
+import { BLACK_COLOR, WHITE_COLOR, tab_navigation_items } from "../data/data";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,11 +25,36 @@ const Tabs = () => {
             backgroundColor: isDarkMode ? BLACK_COLOR : WHITE_COLOR,
           },
           headerTintColor: isDarkMode ? WHITE_COLOR : BLACK_COLOR,
+          tabBarLabelStyle: {
+            fontWeight: "bold",
+          },
         }}
       >
-        <Tab.Screen name="Movies" component={Movies} />
-        <Tab.Screen name="Tv" component={Tv} />
-        <Tab.Screen name="Search" component={Search} />
+        {Object.keys(tab_navigation_items).map((key) => {
+          const navigation_item = tab_navigation_items[key];
+          return (
+            <Tab.Screen
+              key={key}
+              name={navigation_item.name}
+              component={navigation_item.component}
+              options={{
+                tabBarIcon: ({ focused, color, size }) => {
+                  return (
+                    <Ionicons
+                      name={
+                        focused
+                          ? navigation_item.icon_focused
+                          : navigation_item.icon_notFocused
+                      }
+                      size={size}
+                      color={color}
+                    />
+                  );
+                },
+              }}
+            />
+          );
+        })}
       </Tab.Navigator>
     </NavigationContainer>
   );
