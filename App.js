@@ -6,6 +6,7 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
 import Tabs from "./navigation/Tabs";
+import Stacks from "./navigation/Stacks";
 
 // hideAsyncが呼び出されるまで、ネイティブのスプラッシュスクリーン(app.jsonで設定)を表示したままにします。
 SplashScreen.preventAutoHideAsync();
@@ -65,7 +66,8 @@ export default function App() {
     // <View style={styles.container} onLayout={onLayoutRootView}>
     //   <Text>SplashScreen Demo! 👋</Text>
     // </View>
-    <Tabs />
+    // <Tabs />
+    <Stacks />
   );
 }
 
