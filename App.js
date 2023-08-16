@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useCallback, useEffect, useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as SplashScreen from "expo-splash-screen";
@@ -7,6 +8,7 @@ import * as Font from "expo-font";
 import { Asset } from "expo-asset";
 import Tabs from "./navigation/Tabs";
 import Stacks from "./navigation/Stacks";
+import Root from "./navigation/Root";
 
 // hideAsyncが呼び出されるまで、ネイティブのスプラッシュスクリーン(app.jsonで設定)を表示したままにします。
 SplashScreen.preventAutoHideAsync();
@@ -67,7 +69,9 @@ export default function App() {
     //   <Text>SplashScreen Demo! 👋</Text>
     // </View>
     // <Tabs />
-    <Stacks />
+    <NavigationContainer>
+      <Root />
+    </NavigationContainer>
   );
 }
 

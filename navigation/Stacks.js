@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
 import { Button, Text, View } from "react-native";
+import Tabs from "./Tabs";
 
 const Stack = createNativeStackNavigator();
 
@@ -9,6 +9,10 @@ const One = ({ navigation }) => {
   return (
     <View>
       <Text>One Screen</Text>
+      <Button
+        title="Go Back (Go to Movie home)"
+        onPress={() => navigation.goBack()}
+      ></Button>
       <Button
         title="Go to Two"
         onPress={() => navigation.navigate("Two")}
@@ -45,13 +49,15 @@ const Three = ({ navigation }) => {
 
 const Stacks = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="One" component={One} />
-        <Stack.Screen name="Two" component={Two} />
-        <Stack.Screen name="Three" component={Three} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator
+      screenOptions={{
+        headerBackTitleVisible: false,
+      }}
+    >
+      <Stack.Screen name="One" component={One} />
+      <Stack.Screen name="Two" component={Two} />
+      <Stack.Screen name="Three" component={Three} />
+    </Stack.Navigator>
   );
 };
 
