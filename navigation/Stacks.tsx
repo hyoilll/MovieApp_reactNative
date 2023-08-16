@@ -1,11 +1,17 @@
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React, { FC } from "react";
+import {
+  NativeStackScreenProps,
+  createNativeStackNavigator,
+} from "@react-navigation/native-stack";
 import { Button, Text, View } from "react-native";
-import Tabs from "./Tabs";
+
+type PropsOne = NativeStackScreenProps<any, "One">;
+type PropsTwo = NativeStackScreenProps<any, "Two">;
+type PropsThree = NativeStackScreenProps<any, "Three">;
 
 const Stack = createNativeStackNavigator();
 
-const One = ({ navigation }) => {
+const One: FC<PropsOne> = ({ navigation }) => {
   return (
     <View>
       <Text>One Screen</Text>
@@ -20,7 +26,7 @@ const One = ({ navigation }) => {
     </View>
   );
 };
-const Two = ({ navigation }) => {
+const Two: FC<PropsTwo> = ({ navigation }) => {
   return (
     <View>
       <Text>Two Screen</Text>
@@ -35,7 +41,7 @@ const Two = ({ navigation }) => {
     </View>
   );
 };
-const Three = ({ navigation }) => {
+const Three: FC<PropsThree> = ({ navigation }) => {
   return (
     <View>
       <Text>Three Screen</Text>

@@ -1,6 +1,9 @@
-import React from "react";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React, { FC } from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
+
+type Props = NativeStackScreenProps<any, "Tv">;
 
 const Container = styled.View`
   flex: 1;
@@ -8,12 +11,12 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const Search = () => {
+const Tv: FC<Props> = () => {
   return (
     <Container>
-      <Text>Search</Text>
+      <Text>Tv</Text>
     </Container>
   );
 };
 
-export default Search;
+export default Tv;
