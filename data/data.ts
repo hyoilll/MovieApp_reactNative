@@ -2,8 +2,14 @@ import Movies from "../screens/Movies";
 import Tv from "../screens/Tv";
 import Search from "../screens/Search";
 
-export const BLACK_COLOR = "black";
-export const WHITE_COLOR = "white";
+export const darkTheme = {
+  mainBgColor: "black",
+  textColor: "white",
+};
+export const lightTheme = {
+  mainBgColor: "white",
+  textColor: "black",
+};
 
 export const tab_navigation_items = {
   0: {

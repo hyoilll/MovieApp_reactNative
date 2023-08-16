@@ -6,15 +6,18 @@ import { Ionicons } from "@expo/vector-icons";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
-import Tabs from "./navigation/Tabs";
-import Stacks from "./navigation/Stacks";
 import Root from "./navigation/Root";
+import { ThemeProvider } from "styled-components/native";
+import { useColorScheme } from "react-native";
+import { darkTheme, lightTheme } from "./data/data";
 
 // hideAsyncが呼び出されるまで、ネイティブのスプラッシュスクリーン(app.jsonで設定)を表示したままにします。
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
+
+  const isDarkMode = useColorScheme() === "dark" ? true : false;
 
   const loadFonts = (fonts) => fonts.map((font) => Font.loadAsync(font));
   const loadImages = (imgs) =>
@@ -69,9 +72,11 @@ export default function App() {
     //   <Text>SplashScreen Demo! 👋</Text>
     // </View>
     // <Tabs />
-    <NavigationContainer>
-      <Root />
-    </NavigationContainer>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <NavigationContainer>
+        <Root />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
 
