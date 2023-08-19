@@ -21,6 +21,9 @@ const Tabs = () => {
     // 上記のthemeで簡単にdark modeを対応できるようになる。
     // <NavigationContainer theme={DarkTheme}></NacigationContainer>
     <Tab.Navigator
+      sceneContainerStyle={{
+        backgroundColor: theme.mainBgColor,
+      }}
       screenOptions={{
         tabBarStyle: {
           backgroundColor: theme.mainBgColor,

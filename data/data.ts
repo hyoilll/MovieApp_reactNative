@@ -5,10 +5,12 @@ import Search from "../screens/Search";
 export const darkTheme = {
   mainBgColor: "black",
   textColor: "white",
+  blurType: "dark",
 };
 export const lightTheme = {
   mainBgColor: "white",
   textColor: "black",
+  blurType: "light",
 };
 
 export const tab_navigation_items = {
